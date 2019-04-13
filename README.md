@@ -14,7 +14,9 @@ Enable PS scenario:
 
 
 For Service fabric CLI enable/add Python 
+
 https://wiki.python.org/moin/BeginnersGuide/Download
+
 https://pip.pypa.io/en/latest/quickstart/
 
 pip install -I sfctl==1.1.0
@@ -24,8 +26,8 @@ pip install -I sfctl==1.1.0
 
 
 In new windows please run:
-python --version
-pip --version
+ - python --version
+ - pip --version
 
 sfctl -h
 
