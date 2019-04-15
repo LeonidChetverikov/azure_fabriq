@@ -1,0 +1,39 @@
+1. Create subscription ( free with 300 usd on account)
+2. login to azure
+az login 
+it will create JWT credential token
+
+
+3. az group create --name myResourceGroup --location local
+where myResourceGroup - name of resource group in Azure Resource manager
+
+4. Create VM
+az vm create \
+  --resource-group "myResourceGroup" \
+  --name "myVM" \
+  --image "Win2016Datacenter" \
+  --admin-username "Demouser" \
+  --admin-password "Demouser@123" \
+  --location local
+  
+  5. Open port 80 for IIS traffic 
+  
+  az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+  
+  6. Connect to vm
+  
+  mstsc /v <Public IP Address>
+  
+  you can find IP using cli : az vm list-ip-addresses -g MyResourceGroup -n MyVm
+  
+  7. Open power shell and add there IIS
+  
+  Install-WindowsFeature -name Web-Server -IncludeManagementTools
+  
+  8. Check that IIS installed and present:
+  Open browsdr on local laptop. Use the public IP address documented in the previous section to visit the default page.
+  
+  9. Clean up resources. 
+  az group delete --name myResourceGroup
+  
+  
